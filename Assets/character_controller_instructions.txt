@@ -1,0 +1,103 @@
+I'm building a beginner-friendly third-person fantasy adventure game in Unity 6.3 called **Fablewood**.
+
+I have a humanoid character named **Finn**, imported into Unity.
+
+I've also imported **Kevin Iglesias' Human Basic Motions** animation package into the project. These animations should already be available when you run.
+
+I want you to create a complete, beginner-friendly third-person character controller and a custom Unity Editor tool that automatically configures Finn for gameplay.
+
+## Character Controller Requirements
+
+Create a simple, reliable third-person controller using Unity's built-in `CharacterController` component and the newer Unity Input System.
+
+Features:
+- WASD movement relative to the camera
+- Mouse-controlled third-person orbit camera
+- Smooth character rotation toward movement direction
+- Shift to sprint
+- Spacebar to jump
+- Gravity and ground detection
+- Smooth acceleration and deceleration
+- Animator support for idle, walking, running, and jumping
+- Exposed movement settings in the Inspector
+
+## Unity Editor Setup Tool
+
+Create a custom Editor tool accessible through:
+
+**Tools → Fablewood → Setup Character Controller**
+
+When I select Finn in the Hierarchy and launch this tool, it should automatically:
+
+1. Identify the selected character and locate its Animator, including on child objects.
+2. Add and configure a CharacterController component, adjusting its height, center, and radius to fit the character.
+3. Add the third-person movement script.
+4. Create or configure a third-person camera that follows and orbits Finn.
+5. Find the existing Kevin Iglesias Human Basic Motions animation assets.
+6. Create an Animator Controller with appropriate states, parameters, transitions, and a locomotion blend tree.
+7. Assign the Animator Controller to Finn.
+8. Avoid creating duplicate components, cameras, or controllers when setup is run multiple times.
+9. Support Unity's Undo system where practical.
+
+## Animation Configuration
+
+Search the project's assets for the **Kevin Iglesias Human Basic Motions** package.
+
+Inspect the available animation clips and identify appropriate animations for:
+
+- Idle
+- Walking
+- Running
+- Jumping
+
+Prefer in-place animations where available, since movement will be controlled through code rather than root motion.
+
+Create a 1D blend tree for idle, walk, and run using a movement speed parameter.
+
+Create a separate jump state with appropriate transitions.
+
+Ensure that the animations are compatible with Finn's humanoid rig and that the Animator uses the correct Avatar.
+
+Disable root motion for the character controller.
+
+Do not assume specific animation filenames or asset paths. Inspect the actual project assets before choosing clips.
+
+If multiple suitable clips exist or automatic detection is uncertain, provide an Editor window with dropdowns or object fields allowing me to select the appropriate clips manually.
+
+## Technical Requirements
+
+- Unity 6.3 and C#
+- Unity's newer Input System
+- No Cinemachine or additional third-party dependencies
+- Use the built-in CharacterController for collision and movement
+- Place editor-only scripts in an Editor folder
+- Keep runtime scripts simple and readable
+- Use clear error messages for missing packages, animations, or components
+- Avoid modifying unrelated project settings or scene objects
+- Use existing project assets whenever possible
+- Keep the implementation easy for beginners to understand and customize
+
+## Intended Beginner Workflow
+
+The goal is to make setting up a playable character as easy as possible:
+
+1. Import Finn's 3D character model.
+2. Import Kevin Iglesias' Human Basic Motions package.
+3. Drag Finn into the Unity scene.
+4. Select Finn in the Hierarchy.
+5. Open **Tools → Fablewood → Setup Character Controller**.
+6. Review the automatically detected animation clips and adjust them if necessary.
+7. Click Setup.
+8. Press Play and immediately control Finn with WASD, mouse, Shift, and Space.
+
+## Important
+
+This project is being used in a YouTube tutorial for people who are completely new to Unity and AI-assisted game development.
+
+Prioritize a reliable, repeatable setup over advanced features.
+
+Before implementing anything, inspect the existing Unity project structure, installed packages, character setup, and available animations.
+
+Implement the runtime controller and Editor setup tool, then explain any remaining manual steps.
+
+Do not introduce unnecessary complexity or additional dependencies.
