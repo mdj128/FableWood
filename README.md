@@ -2,7 +2,9 @@
 
 **From an AI-generated 3D character to a playable third-person game in Unity, built by a complete beginner with AI help.**
 
-Fablewood is the companion project for a YouTube tutorial. It takes a character named **Finn** through the whole pipeline:
+Fablewood is the companion project for a YouTube tutorial: https://www.youtube.com/watch?v=40vP0HBejs0
+
+It takes a character named **Finn** through the whole pipeline:
 
 1. Generate the 3D model with AI (**Hyper3D Rodin** or **Tripo**).
 2. Rig it automatically in **AccuRig**.
